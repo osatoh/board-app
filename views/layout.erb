@@ -1,0 +1,24 @@
+<% if session[:user] %>
+  <p><%= "ログイン中のユーザー: #{session[:user]["name"]}" %></p>
+  <form action="/signout" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="サインアウト">
+  </form>
+<% else %>
+  <div>
+    <p>ログインしていません</p>
+  </div>
+<% end %>
+
+<p>--------------------------------</p>
+
+<ul style="list-style: none; display: flex; padding: 0;">
+  <li style="margin: 3px"><a href="/">トップ</a></li>
+  <li style="margin: 3px"><a href="/signup">新規登録</a></li>
+  <li style="margin: 3px"><a href="/signin">ログイン</a></li>
+  <li style="margin: 3px"><a href="/posts">投稿</a></li>
+</ul>
+
+<p>--------------------------------</p>
+
+<%= yield %>

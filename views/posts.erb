@@ -1,0 +1,15 @@
+<form action="/posts" method="post">
+  <div>
+    <label for="content"></label>
+    <textarea name="content"></textarea>
+  </div>
+  <input type="submit" value="投稿">
+</form>
+
+<% @posts.each do |post| %>
+  <div>
+    <p>投稿者: <%= post["name"] %></p>
+    <p> 内容: <%= post["content"] %></p>
+    <p>---------------------------</p>
+  </div>
+<% end %>
