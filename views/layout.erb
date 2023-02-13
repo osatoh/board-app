@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+<body>
 <% if session[:user] %>
   <p><%= "ログイン中のユーザー: #{session[:user]["name"]}" %></p>
   <form action="/signout" method="post">
@@ -20,5 +29,6 @@
 </ul>
 
 <p>--------------------------------</p>
-
 <%= yield %>
+</body>
+</html>

@@ -5,7 +5,6 @@ GEM
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
-    pg (1.4.1)
     puma (5.6.4)
       nio4r (~> 2.0)
     rack (2.2.6.2)
@@ -23,6 +22,7 @@ GEM
       rack-protection (= 3.0.5)
       sinatra (= 3.0.5)
       tilt (~> 2.0)
+    sqlite3 (1.6.0-arm64-darwin)
     tilt (2.0.11)
 
 PLATFORMS
@@ -30,10 +30,10 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
-  pg
   puma
   sinatra
   sinatra-contrib
+  sqlite3
 
 BUNDLED WITH
    2.4.4
