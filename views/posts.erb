@@ -10,6 +10,10 @@
   <div>
     <p>投稿者: <%= post["name"] %></p>
     <p> 内容: <%= post["content"] %></p>
+    <form action="posts/<%= post["id"] %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="削除">
+    </form>
     <p>---------------------------</p>
   </div>
 <% end %>

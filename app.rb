@@ -67,7 +67,7 @@ get '/posts' do
   unless session[:user]
     return redirect '/signin'
   end
-  @posts = client.execute("SELECT * FROM posts inner join users user on user.id = posts.user_id order by created_at DESC;")
+  @posts = client.execute("SELECT post.id, content, created_at, name FROM users join posts post on users.id = post.user_id order by created_at DESC;")
   erb :posts
 end
 
@@ -75,5 +75,10 @@ post '/posts' do
   content = params[:content]
 
   client.execute("INSERT INTO posts (content, user_id) VALUES ($1, $2)", [content, session[:user]["id"].to_i])
+  return redirect '/posts'
+end
+
+delete '/posts/:id' do
+  client.execute("DELETE FROM posts WHERE id = $1", [params["id"]])
   return redirect '/posts'
 end
